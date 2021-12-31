@@ -10,4 +10,4 @@ Watermark™ sensors are available from Irrometer Company. These soil moisture s
 
 
 ## Library and PCB
-The library for Arduino board and the PCB, will be available in the next few months. Wainting for this time, you can follow my activities on [Facebook](https://www.facebook.com/ecosensors) or to read my[project](https://eco-sensors.ch/smart-irrigation/) with LoRaWAN. (Those pages are sadly not translated in english, yet)
+The library for Arduino board and the PCB, will be available in the next few months. Wainting for this time, you can follow my activities on [Facebook](https://www.facebook.com/ecosensors) or to read my [project](https://eco-sensors.ch/smart-irrigation/) with LoRaWAN. (Those pages are sadly not translated in english, yet)
