@@ -4,7 +4,7 @@
 
 EcoIrrigation is a small electronic module which allow you to convert the electrical resistance signal of a Watermak sensors to a humdidy value (kPa).
 
-![alt PCB](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/pcb.png)
+![alt PCB](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/pcb-ecoirrigation.png)
 
 ## Watermark sensor
 Watermark™ sensors are available from Irrometer Company. These soil moisture sensors are to be buried in intimate contact with soil at root depth, where they will reach equilibrium with the local soil moisture. The measurement correlates well with soil water potential. This is fine for agriculture, because water potential (in units of kilo-Pascal or centibar) best quantifies the work plant roots do to extract moisture from the soil.
