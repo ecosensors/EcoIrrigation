@@ -14,8 +14,8 @@ The sensor contains a perforated stainless steel cylinder which supports a perme
 The gypsum wafer serves as a buffer against differences in soil acidity and salinity, so that the electrical resistance between the electrodes depends on moisture and temperature only
 
 ### How does EcoIrrigation board work?
-The sensoor return an electrical resistane, which decreases witn increasing soil moisture. 
-DC currents must not be allowed to flow through the wet part of the circuit, or else irreversible reactions will occur and spoil the readings. However, a AC current  avoids these problems, by reversing the polarity of the current many times per second, so that no net reaction takes place at either electrode.
+The sensoor return an electrical resistance, which decreases with increasing soil moisture. 
+DC currents must not be allowed to flow through the wet part of the circuit, or else irreversible reactions will occur and spoil the readings. However, a AC current  avoids these problems, by reversing the polarity of the current many times per second, so that no reaction takes place at either electrode.
 
 EcoIrrigation board provides an AC current at the electrodes. The output signal is a square wave, and its frequency varies (as for the the electrical resistance) from 50 hz when the sensor is bone dry, up to 10000+ hertz when the sensor is soaking wet.
 
