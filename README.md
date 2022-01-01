@@ -35,7 +35,7 @@ Pin | Output
 3 | Analog pin (A0, A1, A2, ...)
 
 
-**Important:** The Watermark sensor must be powered only while reading a measure. The rest of the time, it must not be power, to avoid AC current in the electrodes. 
+**Important:** The Watermark sensor must be powered only while reading a measure. The rest of the time, it must not be powered, to avoid AC current in the electrodes. 
 
 ### Header J2
 Watermark sensor wires
