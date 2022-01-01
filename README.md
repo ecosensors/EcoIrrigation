@@ -6,8 +6,20 @@ EcoIrrigation is a small electronic module which allow you to convert the electr
 
 ![alt PCB](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/pcb-ecoirrigation.png)
 
-## Watermark sensor
+## WATERMARK sensor
 Watermark™ sensors are available from Irrometer Company. These soil moisture sensors are to be buried in intimate contact with soil at root depth, where they will reach equilibrium with the local soil moisture. The measurement correlates well with soil water potential. This is fine for agriculture, because water potential (in units of kilo-Pascal or centibar) best quantifies the work plant roots do to extract moisture from the soil.
+
+The sensor contains a perforated stainless steel cylinder which supports a permeable membrane. Inside, there is a tightly packed sand aggregate, called “granular matrix”, and at one end there is a wafer of gypsum, and concentric electrodes. The electrodes are attached to wires that emerge to the soil surface.
+
+The gypsum wafer serves as a buffer against differences in soil acidity and salinity, so that the electrical resistance between the electrodes depends on moisture and temperature only
+
+### How does EcoIrrigation board work?
+The sensoor return an electrical resistamce, which decreases witn increasing soil moisture. 
+DC currents must not be allowed to flow through the wet part of the circuit, or else irreversible reactions will occur and spoil the readings. However, a AC current  avoids these problems, by reversing the polarity of the current many times per second, so that no net reaction takes place at either electrode.
+
+EcoIrrigation board provides an AC current at the electrodes. The output signal is a square wave, and its frequency varies from 50 hz when the sensor is bone dry, up to 10000+ hertz when the sensor is soaking wet.
+
+The library that I provides, help you to convert the output to an humidity value in Kpa.
 
 
 ## Library and PCB
