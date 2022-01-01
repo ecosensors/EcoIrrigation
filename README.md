@@ -31,11 +31,11 @@ The library that I provides, help you to convert the output to an humidity value
 Pin | Output
 --- | ---
 1 | GND
-2 | VCC *
+2 | VCC
 3 | Analog pin (A0, A1, A2, ...)
 
 
-* The Watermark sensor must be powered only while reading a measure. The rest of the time, it must not be power, to avoid AC current in the electrodes. 
+** Important ** The Watermark sensor must be powered only while reading a measure. The rest of the time, it must not be power, to avoid AC current in the electrodes. 
 
 ### Header J2
 Watermark sensor wires
