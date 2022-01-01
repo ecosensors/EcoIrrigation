@@ -2,7 +2,9 @@
 
 ***The following page is being writting and constently updating***
 
-EcoIrrigation is a small electronic module which allow you to convert the electrical resistance signal of a Watermak sensors to a humdidy value (kPa).
+EcoIrrigation is a small electronic module which apply an AC current to the two electrodes of the Watermark sensor, and returns a frequency as a output.
+The library will manage the EcoIrrigation module and convert the output to a humidity value in kPa.
+
 
 ![alt PCB](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/pcb-ecoirrigation.png)
 
