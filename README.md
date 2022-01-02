@@ -23,6 +23,9 @@ EcoIrrigation board provides an AC current at the electrodes. The output signal 
 
 The library that I provides, help you to convert the output to an humidity value in Kpa.
 
+It's necessary to measure the temperature of the soil with a DS18B20 to have an accurate measure. Here is [an example](https://github.com/ecosensors/EcoBoard/blob/master/examples/multi-ds18b20/multi-ds18b20.ino), how to use a DS18B20
+
+
 ## Pinout
 
 ### Header J1
