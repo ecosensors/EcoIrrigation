@@ -3,7 +3,7 @@
  * 
  * Here is a exemple how to read a value of WATERMARK sensor with the EcoIrrigation board
  *
- * Exemple code is currenty being writing
+ * Exemple code is currenty being writing and not working yet
  */
  
 #include <EcoIrrigation.h>
