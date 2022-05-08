@@ -87,9 +87,9 @@ EcoIrrigation::EcoIrrigation()
 void EcoIrrigation::begin()
 {
   Serial.println(F("\r\n**************************"));
-	Serial.println(F("*  EcoIrrigation Library   *"));
-	Serial.println(F("*   from EcoSensor.ch    *"));
-	Serial.println(F("**************************"));
+  Serial.println(F("*  EcoIrrigation Library   *"));
+  Serial.println(F("*   from EcoSensor.ch    *"));
+  Serial.println(F("**************************"));
 }
 
 /*
