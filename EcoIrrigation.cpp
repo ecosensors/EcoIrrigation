@@ -16,7 +16,7 @@
 #include "EcoIrrigation.h"
 
 
-long RESISTORarray[76] = {
+const long RESISTORarray[76] = {
   // Watermark Sensor SMX interface to convert Hz to Resistance lookup table per  SMX.pdf page 6.
   // Hz, Ohm 
   48,  10000000,
@@ -60,7 +60,7 @@ long RESISTORarray[76] = {
 };
 
 
-long SWPkPAarray[18]{
+const long SWPkPAarray[18]{
   // Watermark Sensor SMX interface to vonvert Resistance to SWP kPa lookup table per SMX.pdf page 7. 
   // this table is valid at temperature of 75F, 24C 
   550,  0,
@@ -96,6 +96,7 @@ void EcoIrrigation::begin()
 * IMPORTAN: The WATERMRK sensor must not b3 permanetly  powered, but only while reading a measure
 */
 
+// //https://forum.mysensors.org/topic/9384/how-to-read-frequency-and-swp-output-from-watermark-sensor/4
 bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, int16_t Tsoil, int16_t &swp)
 {
   read(analogPin, powerPin, timeout, Tsoil, swp, false);
@@ -106,17 +107,16 @@ bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, int
 
   /*
   * TODO: Add the timeout
-  */
-
-	if(debug)
+  */i
+  if(debug)
     Serial.println(F("\tPowering the Watermark sensor"));
 	digitalWrite(powerPin, HIGH);
-	if(debug)
+
+  if(debug)
     Serial.println(F("\tNeed a delay for the sensor to be in equilibre with the soil."));
-	delay(3000);
+  delay(3000);
 
-
-	int highInput, lowInput;             		  // Store high and low time of wave in microseconds
+  int highInput, lowInput;             		  // Store high and low time of wave in microseconds
   float totalInput;                     		// Temp store of total time of duration for one cycle of high and low pulse
   float frequency;                      		// calculated freqency   1/total time of one cycle.
   int16_t swp_shock;							         // store the swp calculate with Shock
@@ -147,8 +147,8 @@ bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, int
 
   if(debug)
     Serial.println(F("\tPowering OFF the Watermark sensor"));
-	digitalWrite(powerPin, LOW);
-	delay(500);
+  digitalWrite(powerPin, LOW);
+  delay(500);
 
 
 
