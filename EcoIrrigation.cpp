@@ -18,7 +18,7 @@
 
 long RESISTORarray[76] = {
   // Watermark Sensor SMX interface to convert Hz to Resistance lookup table per  SMX.pdf page 6.
-  // Hz, Ohm
+  // Hz, Ohm 
   48,  10000000,
   76,  262144,
 	85,  196608,
@@ -62,7 +62,7 @@ long RESISTORarray[76] = {
 
 long SWPkPAarray[18]{
   // Watermark Sensor SMX interface to vonvert Resistance to SWP kPa lookup table per SMX.pdf page 7. 
-  // this table is valid at temperature of 75F, 24C  
+  // this table is valid at temperature of 75F, 24C 
   550,  0,
   1000,  9, 
   1100,  10,
