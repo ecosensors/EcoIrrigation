@@ -17,8 +17,8 @@
 
 
 long RESISTORarray[76] = {
-  // Watermark Sensor SMX interface to convert Hz to Resistance lookup table per  SMX.pdf page 6. 
-	// Hz, Ohm
+  // Watermark Sensor SMX interface to convert Hz to Resistance lookup table per  SMX.pdf page 6.
+  // Hz, Ohm
 	48,  10000000,
 	76,  262144,
 	85,  196608,
@@ -90,7 +90,6 @@ void EcoIrrigation::begin()
 	Serial.println(F("*  EcoIrrigation Library   *"));
 	Serial.println(F("*   from EcoSensor.ch    *"));
 	Serial.println(F("**************************"));
-
 }
 
 /*
