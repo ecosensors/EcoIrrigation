@@ -107,7 +107,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, int
 
   /*
   * TODO: Add the timeout
-  */i
+  */
   if(debug)
     Serial.println(F("\tPowering the Watermark sensor"));
 	digitalWrite(powerPin, HIGH);
