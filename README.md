@@ -27,10 +27,10 @@ It's necessary to measure the temperature of the soil with a DS18B20 to have an 
 
 
 ## Switch
-The switch allow how you want to power the WATERMARK sensor
+The switch allow you to choose how you want to power the WATERMARK sensor
 
 
-Pos |  Powered by
+Mode |  Powered by
 --- | ---
 MOSFET | Powered by the 3.3V while the MOSFET is triggered (Default and strongly recommended)
 µC | Powered by the pin of the microcontroller
