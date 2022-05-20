@@ -54,6 +54,7 @@ Pin | Output
 3 | Outpout (Analog pin)
 
 The Ctrl must be LOW to power the sensor while you use the MOSFET mode. Change to HIGH between two measures.
+
 The Ctrl must be HIGH to power the sensor while you use the µC mode. Change to LOW between two measures.
 
 
