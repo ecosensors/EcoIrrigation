@@ -21,7 +21,7 @@ DC currents must not be allowed to flow through the wet part of the circuit, or 
 
 EcoIrrigation board provides an AC current at the electrodes. The output signal is a square wave, and its frequency varies (as for the the electrical resistance) from 50 hz when the sensor is bone dry, up to 10000+ hertz when the sensor is soaking wet.
 
-The library that I provides, help you to convert the output to an humidity value in Kpa.
+The library helps you to convert the output to an humidity value in Kpa.
 
 It's necessary to measure the temperature of the soil with a DS18B20 to have an accurate measure. Here is [an example](https://github.com/ecosensors/EcoBoard/blob/master/examples/multi-ds18b20/multi-ds18b20.ino), how to use a DS18B20
 
@@ -34,8 +34,9 @@ It's necessary to measure the temperature of the soil with a DS18B20 to have an 
 Pin | Output
 --- | ---
 1 | GND
-2 | VCC (on/off)
-3 | Analog pin (A0, A1, A2, ...)
+2 | 3.3V
+2 | Ctrl(on/off)
+3 | Outpout (Analog pin)
 
 
 **Important:** The Watermark sensor must be powered only while reading a measure. The rest of the time, it must not be powered, to avoid AC current in the electrodes. 
