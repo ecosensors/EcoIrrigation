@@ -26,22 +26,38 @@ The library helps you to convert the output to an humidity value in Kpa.
 It's necessary to measure the temperature of the soil with a DS18B20 to have an accurate measure. Here is [an example](https://github.com/ecosensors/EcoBoard/blob/master/examples/multi-ds18b20/multi-ds18b20.ino), how to use a DS18B20
 
 
+## Switch
+The switch allow how you want to power the WATERMARK sensor
+
+
+Pos |
+--- | ---
+MOSFET | Powered by the 3.3V while the MOSFET is triggered (Default and strongly recommended)
+µC | Powered by the pin of the microcontroller
+
+![alt MOSFET](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/mosfet.png)
+
+
 ## Pinout
 
-### Header J1
+### Header SJ1
 (EcoBoard or any Arduino board)
 
 Pin | Output
 --- | ---
 1 | GND
 2 | 3.3V
-2 | Ctrl(on/off)
+2 | Ctrl (on/off)
 3 | Outpout (Analog pin)
+
+The Ctrl must be LOW to power the sensors while you use the MOSFET mode
+The Ctrl must be HIGH to power the sensors while you use the µC mode
+
 
 
 **Important:** The Watermark sensor must be powered only while reading a measure. The rest of the time, it must not be powered, to avoid AC current in the electrodes. 
 
-### Header J2
+### Header SJ2
 Watermark sensor wires
 
 Pin | Output
