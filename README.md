@@ -35,8 +35,11 @@ Pos |  Powered by
 MOSFET | Powered by the 3.3V while the MOSFET is triggered (Default and strongly recommended)
 µC | Powered by the pin of the microcontroller
 
+Applying a LOW value at RG0 will trigger the MOSFET and power the sensors
+
 ![alt MOSFET](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/mosfet.png)
 
+(RD0 is not solder in the board)
 
 ## Pinout
 
