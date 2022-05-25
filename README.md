@@ -41,7 +41,7 @@ MOSFET | Powered by the 3.3V while the MOSFET is triggered (Default and strongly
 
 ![alt MOSFET](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/mosfet.png)
 
-(RD0 is not soldered in the board)
+(Ignore RD0. RDO is not soldered on that board)
 
 ## Pinout
 
