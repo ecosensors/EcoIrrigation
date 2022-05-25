@@ -32,10 +32,11 @@ The switch allow you to choose how you want to power the WATERMARK sensor
 
 Mode |  Powered by
 --- | ---
-MOSFET | Powered by the 3.3V while the MOSFET is triggered (Default and strongly recommended)
-µC | Powered by the pin of the microcontroller
+MOSFET | Powered by the 3.3V while the MOSFET is triggered (Default and strongly recommended) (1)
+µC | Powered by the pin of the microcontroller (2)
 
-Applying a LOW value at RG0 will trigger the MOSFET and power the sensors
+(1) Applying a LOW value will trigger the MOSFET and power the sensors
+(2) If you are using the [EcoBoard](https://github.com/ecosensors/EcoBoard), keep the switch to µC position because the EcoBoard already has a MOFSET. 
 
 ![alt MOSFET](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/mosfet.png)
 
@@ -51,7 +52,7 @@ Pin | Output
 1 | GND
 2 | Ctrl (on/off)
 3 | Outpout (Analog pin). It need to be pulled up with a 4.7K if you do not connect the pin 4 to 3.3V
-4 | 3.3V. If you connect it to 3.3V, the output is puleld out with 4.7K
+4 | 3.3V. If you connect it to 3.3V, the output is puleld out with 4.7K. Otherwise, leave it disconnected.
 
 The Ctrl must be LOW to power the sensor while you use the MOSFET mode. Change to HIGH between two measures.
 
