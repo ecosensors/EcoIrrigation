@@ -1,7 +1,5 @@
 # EcoIrrigation
 
-***The following page is being writting and constently updating***
-
 EcoIrrigation is a small electronic module which applies an AC current to the two electrodes of the Watermark sensor, and returns a frequency as a output.
 The library will manage the EcoIrrigation module and convert the output to a humidity value in kPa.
 
