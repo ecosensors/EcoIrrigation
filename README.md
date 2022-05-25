@@ -36,6 +36,7 @@ MOSFET | Powered by the 3.3V while the MOSFET is triggered (Default and strongly
 µC | Powered by the pin of the microcontroller (2)
 
 (1) Applying a LOW value will trigger the MOSFET and power the sensors
+
 (2) If you are using the [EcoBoard](https://github.com/ecosensors/EcoBoard), keep the switch to µC position because the EcoBoard already has a MOFSET. 
 
 ![alt MOSFET](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/mosfet.png)
