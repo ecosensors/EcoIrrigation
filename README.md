@@ -1,7 +1,5 @@
 # EcoIrrigation
 
-***The following page is being writting and constently updating***
-
 EcoIrrigation is a small electronic module which applies an AC current to the two electrodes of the Watermark sensor, and returns a frequency as a output.
 The library will manage the EcoIrrigation module and convert the output to a humidity value in kPa.
 
@@ -21,26 +19,49 @@ DC currents must not be allowed to flow through the wet part of the circuit, or 
 
 EcoIrrigation board provides an AC current at the electrodes. The output signal is a square wave, and its frequency varies (as for the the electrical resistance) from 50 hz when the sensor is bone dry, up to 10000+ hertz when the sensor is soaking wet.
 
-The library that I provides, help you to convert the output to an humidity value in Kpa.
+The library helps you to convert the output to an humidity value in Kpa.
 
 It's necessary to measure the temperature of the soil with a DS18B20 to have an accurate measure. Here is [an example](https://github.com/ecosensors/EcoBoard/blob/master/examples/multi-ds18b20/multi-ds18b20.ino), how to use a DS18B20
 
 
+## Switch
+The switch allow you to choose how you want to power the WATERMARK sensor
+
+
+Mode |  Powered by
+--- | ---
+MOSFET | Powered by the 3.3V while the MOSFET is triggered (Default and strongly recommended) (1)
+µC | Powered by the pin of the microcontroller (2)
+
+(1) Applying a LOW value will trigger the MOSFET and power the sensors
+
+(2) If you are using the [EcoBoard](https://github.com/ecosensors/EcoBoard), keep the switch to µC position because the EcoBoard already has a MOFSET. 
+
+![alt MOSFET](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/mosfet.png)
+
+(Ignore RD0. RDO is not soldered on that board)
+
 ## Pinout
 
-### Header J1
+### Header SJ1
 (EcoBoard or any Arduino board)
 
 Pin | Output
 --- | ---
 1 | GND
-2 | VCC (on/off)
-3 | Analog pin (A0, A1, A2, ...)
+2 | Ctrl (on/off)
+3 | Outpout (Analog pin). It need to be pulled up with a 4.7K if you do not connect the pin 4 to 3.3V
+4 | 3.3V. If you connect it to 3.3V, the output is puleld out with 4.7K. Otherwise, leave it disconnected.
+
+The Ctrl must be LOW to power the sensor while you use the MOSFET mode. Change to HIGH between two measures.
+
+The Ctrl must be HIGH to power the sensor while you use the µC mode. Change to LOW between two measures.
+
 
 
 **Important:** The Watermark sensor must be powered only while reading a measure. The rest of the time, it must not be powered, to avoid AC current in the electrodes. 
 
-### Header J2
+### Header SJ2
 Watermark sensor wires
 
 Pin | Output
