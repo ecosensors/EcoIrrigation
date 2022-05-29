@@ -97,20 +97,32 @@ void EcoIrrigation::begin()
 */
 
 // //https://forum.mysensors.org/topic/9384/how-to-read-frequency-and-swp-output-from-watermark-sensor/4
-bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, int16_t Tsoil, int16_t &swp)
+
+// powerLow parameter need to be true, while you need to low value to power the sensor.EcoBoard need a low value because of the MOSFET
+bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, bool powerLow, int16_t Tsoil, int16_t &swp)
 {
-  read(analogPin, powerPin, timeout, Tsoil, swp, false);
+  read(analogPin, powerPin, timeout, powerLow, Tsoil, swp, false);
 }
 
-bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, int16_t Tsoil, int16_t &swp, bool debug) // , bool debug = false
+bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, bool powerLow, int16_t Tsoil, int16_t &swp, bool debug) // , bool debug = false
 {
 
   /*
   * TODO: Add the timeout
   */
-  if(debug)
-    Serial.println(F("\tPowering the Watermark sensor"));
-	digitalWrite(powerPin, HIGH);
+	
+  if(powerPin>0)
+  {
+    if(debug)
+      Serial.println(F("\tPowering the Watermark sensor"));
+
+    if(powerLow)
+      digitalWrite(powerPin, LOW);
+    else
+      digitalWrite(powerPin, HIGH);
+  }
+
+  
 
   if(debug)
     Serial.println(F("\tNeed a delay for the sensor to be in equilibre with the soil."));
@@ -134,12 +146,14 @@ bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, int
   if (highInput >0 && lowInput>0)
   {
     if(debug)
-      Serial.print(F("\tFrequency: ")); Serial.print((int16_t)frequency); Serial.print(F("Hz\t"));
+      Serial.print(F("\tFrequency: ")); 
+      Serial.print((int16_t)frequency); 
+      Serial.print(F("Hz\t"));
   }
   else
   {
     if(debug)
-      Serial.print(F("\tfrequency: Error "));
+      Serial.println(F("\tfrequency: Error (Check how the sensor is powered) "));
     return false;
   }
     
@@ -147,7 +161,15 @@ bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, int
 
   if(debug)
     Serial.println(F("\tPowering OFF the Watermark sensor"));
-  digitalWrite(powerPin, LOW);
+
+  if(powerPin > 0)
+  {
+    if(powerLow)
+      digitalWrite(powerPin, HIGH);
+    else
+      digitalWrite(powerPin, LOW);
+  }
+  
   delay(500);
 
 

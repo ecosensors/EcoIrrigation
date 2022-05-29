@@ -15,7 +15,7 @@ class EcoIrrigation{
 	public:
 		EcoIrrigation();
 		void begin();
-		bool read(int analogPin, int powerPin, unsigned long timeout, int16_t Tsoil, int16_t &swp);
-		bool read(int analogPin, int powerPin, unsigned long timeout, int16_t Tsoil, int16_t &swp, bool debug);
+		bool read(int analogPin, int powerPin, unsigned long timeout, bool powerLow, int16_t Tsoil, int16_t &swp);
+		bool read(int analogPin, int powerPin, unsigned long timeout, bool powerLow, int16_t Tsoil, int16_t &swp, bool debug);
  };
  #endif
