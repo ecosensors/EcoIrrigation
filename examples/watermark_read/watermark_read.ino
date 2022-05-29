@@ -1,7 +1,8 @@
 /*
  * EcoIrrigation from EcoSensors
  * 
- * Here is a exemple how to read a value of WATERMARK sensor with the EcoIrrigation board
+ * Here is an exemple how to read a value of WATERMARK sensor with the EcoIrrigation board
+ * IMPORTANT: The watermark sensor must be powered only during a measure. Then keep it unpowered.
  *
  * Exemple code is currenty being writing
  */
