@@ -92,15 +92,15 @@ void EcoIrrigation::begin()
 /*
 * IMPORTAN: The WATERMRK sensor must not b3 permanetly  powered, but only while reading a measure
 */
-
 // //https://forum.mysensors.org/topic/9384/how-to-read-frequency-and-swp-output-from-watermark-sensor/4
 
-// powerLow parameter need to be true, while you need to low value to power the sensor.EcoBoard need a low value because of the MOSFET
+
 bool EcoIrrigation::read(int analogPin, int16_t Tsoil, int16_t &swp, bool debug)
 {
   read(analogPin, 0, false, Tsoil, swp, debug);
 }
 
+// powerLow parameter need to be true, while you need to low value to power the sensor.EcoBoard need a low value because of the MOSFET
 bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tsoil, int16_t &swp)
 {
   read(analogPin, powerPin, powerLow, Tsoil, swp, false);
@@ -139,7 +139,6 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
   int16_t swp_shock;							         // store the swp calculate with Shock
   int percent=0;
   int32_t wrm;								              // Resistance of the sensors calculate from the frenquency returned by EcoIrrigation board output
-    //int32_t wrm2;
 
   highInput = pulseIn(analogPin,HIGH);
   lowInput  = pulseIn(analogPin,LOW);
@@ -200,7 +199,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
   if(debug)
   {
     Serial.print(F("\tWRM: "));
-    Serial.print(wrm); Serial.print(F(" Ohm"));
+    Serial.print(wrm); Serial.println(F(" Ohm"));
   }
 
   /*
@@ -217,7 +216,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
 
   if(debug)
   {
-    Serial.print(F("DEBUG Tsoil: "));
+    Serial.print(F("Temperature of the soil: "));
     Serial.println(Tsoil);
   }
 
@@ -239,7 +238,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
   
   if(debug)
   {
-    Serial.print(F("SWPs: ")); 
+    Serial.print(F("\tSWPs: ")); 
     Serial.print(swp_shock); 
     Serial.println(F(" kpa (Shock)"));
   }
@@ -273,7 +272,7 @@ void EcoIrrigation::kPaCalc(int32_t ResistanceInput, int16_t CTemperatureInput, 
   {
     Serial.print(F("\tWRMc: ")); 
     Serial.print((int16_t)ResistanceCompensated); 
-    Serial.print(F(" Ohm"));
+    Serial.println(F(" Ohm"));
   }
   
   if (ResistanceCompensated <= SWPkPAarray[0]) {     // Minimum value
