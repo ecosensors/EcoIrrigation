@@ -47,7 +47,7 @@ void setup(void)
   Serial.println(F("# Reading the WATERMARK SENSOR"));
   watermark.read(wm1_read_pin, soil_temperature, swp); 
 
-  Serial.println(F("# Powering off the WATERMARK SENSOR"));
+  Serial.println(F("# Powering off the WATERMARK SENSOR")); // It's important to keep it unpowered
   expander.digitalWrite(pwd_p1, HIGH);
 
   Serial.print(swp);
