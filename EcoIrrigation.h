@@ -18,5 +18,5 @@ class EcoIrrigation{
 		bool read(int analogPin, int16_t Tsoil, int16_t &swp, bool debug);
 		bool read(int analogPin, int powerPin, bool powerLow, int16_t Tsoil, int16_t &swp);
 		bool read(int analogPin, int powerPin, bool powerLow, int16_t Tsoil, int16_t &swp, bool debug);
- };
- #endif
+};
+#endif
