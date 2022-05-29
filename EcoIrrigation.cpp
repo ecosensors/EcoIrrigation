@@ -78,9 +78,6 @@ const long SWPkPAarray[18]{
 
 EcoIrrigation::EcoIrrigation()
 {
-
-
-
 }
 	
 
@@ -88,7 +85,7 @@ void EcoIrrigation::begin()
 {
   Serial.println(F("\r\n**************************"));
   Serial.println(F("*  EcoIrrigation Library   *"));
-  Serial.println(F("*   from EcoSensor.ch    *"));
+  Serial.println(F("*   by EcoSensor.ch    *"));
   Serial.println(F("**************************"));
 }
 
@@ -110,8 +107,10 @@ bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, boo
   /*
   * TODO: Add the timeout
   */
+  if(debug)
+      Serial.print(F("\tAnalog pin: ")); Serial.println(analogPin);
 	
-  if(powerPin>0)
+  if(powerPin > 0)
   {
     if(debug)
       Serial.println(F("\tPowering the Watermark sensor"));
@@ -126,6 +125,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, boo
 
   if(debug)
     Serial.println(F("\tNeed a delay for the sensor to be in equilibre with the soil."));
+  
   delay(3000);
 
   int highInput, lowInput;             		  // Store high and low time of wave in microseconds
@@ -139,6 +139,15 @@ bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, boo
   highInput = pulseIn(analogPin,HIGH);
   lowInput  = pulseIn(analogPin,LOW);
   totalInput = highInput + lowInput;
+
+  if(debug)
+  {
+    /*
+    Serial.print(F("highInpput: ")); Serial.println(highInput);
+    Serial.print(F("lowInpput: ")); Serial.println(lowInput);
+    Serial.print(F("totalInpput: ")); Serial.println(totalInput);
+    */
+  }
 
   frequency = 1000000 / totalInput;
 
@@ -169,7 +178,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, unsigned long timeout, boo
     else
       digitalWrite(powerPin, LOW);
   }
-  
+
   delay(500);
 
 
