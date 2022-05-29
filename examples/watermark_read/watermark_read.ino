@@ -31,15 +31,16 @@ void setup(void)
 
   /*
   * Read sensor at A1. Pin 13 will power th sensor while HIGH.
-  * (It's better to do it with a [MOSFET](https://github.com/ecosensors/EcoIrrigation#switch) to power the sensor with VCC)
+  * 
+  * It's better to do it with a [MOSFET](https://github.com/ecosensors/EcoIrrigation#switch) to power the sensor with VCC
+  * According to the above link, the 10kOhm must be LOW to trigger the MOSFET. Then wm1_power_pin has to be connected to the 10kOhm AND the third parameter must be TRUE.
   */
   
   int16_t swp = 0;                // Soil Water Content
   
   Serial.println(F("# Reading the WATERMARK SENSOR"));
-  watermark.read(wm1_read_pin, wm1_power_pin, 1000000, false, soil_temperature, swp); 
-  // the third parameter is the timeout in ms (not used for now)
-  // The fourth parameter need to be true, if you need to power the sensor with a LOW value
+  watermark.read(wm1_read_pin, wm1_power_pin, false, soil_temperature, swp); 
+  // The third parameter need to be true, if you need to power the sensor with a LOW value
 
   Serial.print(swp);
   Serial.println("kPa");
