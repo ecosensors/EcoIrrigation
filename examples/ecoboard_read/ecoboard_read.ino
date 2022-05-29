@@ -1,27 +1,22 @@
 /*
  * EcoIrrigation from EcoSensors
  * 
- * Here is a exemple how to read a value of WATERMARK sensor with the EcoBoard board
+ * Here is an exemple how to read a value of WATERMARK sensor with the EcoBoard board
  * IMPORTANT: The watermark sensor must be powered only during a measure. Then keep it unpowered.
  * 
  * The EcoBoard has a GPIO Port Expander (PCF8574) and a MOSFET to power the Watermark sensor. The MOSFET-P is trigget by P1 or P2 or P3 (Pin 1,2 or 3 of the PCF8574). 
  */
-
 
 const int pcf_p1 = 1;               // Pin 1 of PCF8574 (P1)
 const int wm1_read_pin = 15;        //A1, Anaog pin to read the value return by the EcoIrrigation board
 int16_t soil_temperature = 24;      // The temprature of the soil is very important to have a accurate measure. 
                                     // If you dont, 24°C will be considered. I strongly recommand you to use a [DS18b20 water proof sensor](https://github.com/ecosensors/EcoDs18b20)
 
-
-
-
 #include "PCF8574.h"                // Required for PCF8574
 PCF8574 expander;
 
 #include <EcoIrrigation.h>
 EcoIrrigation watermark;
-
 
 void setup(void)
 {
