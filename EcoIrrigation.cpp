@@ -96,6 +96,11 @@ void EcoIrrigation::begin()
 // //https://forum.mysensors.org/topic/9384/how-to-read-frequency-and-swp-output-from-watermark-sensor/4
 
 // powerLow parameter need to be true, while you need to low value to power the sensor.EcoBoard need a low value because of the MOSFET
+bool EcoIrrigation::read(int analogPin, int16_t Tsoil, int16_t &swp, bool debug)
+{
+  read(analogPin, 0, false, Tsoil, swp, debug);
+}
+
 bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tsoil, int16_t &swp)
 {
   read(analogPin, powerPin, powerLow, Tsoil, swp, false);
@@ -126,7 +131,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
   if(debug)
     Serial.println(F("\tNeed a delay for the sensor to be in equilibre with the soil."));
   
-  delay(3000);
+  delay(5000);
 
   int highInput, lowInput;             		  // Store high and low time of wave in microseconds
   float totalInput;                     		// Temp store of total time of duration for one cycle of high and low pulse
