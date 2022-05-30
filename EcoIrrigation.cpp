@@ -84,13 +84,13 @@ void EcoIrrigation::begin()
 
 bool EcoIrrigation::read(int analogPin, int16_t Tsoil, int16_t &swp, bool debug)
 {
-  read(analogPin, 0, false, Tsoil, swp, debug);
+  return read(analogPin, 0, false, Tsoil, swp, debug);
 }
 
 // powerLow parameter need to be true, while you need to low value to power the sensor.EcoBoard need a low value because of the MOSFET
 bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tsoil, int16_t &swp)
 {
-  read(analogPin, powerPin, powerLow, Tsoil, swp, false);
+  return read(analogPin, powerPin, powerLow, Tsoil, swp, false);
 }
 
 bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tsoil, int16_t &swp, bool debug) // , bool debug = false
@@ -140,6 +140,19 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
     */
   }
 
+  delay(100);
+
+  if(powerPin > 0)
+  {
+    if(debug){
+      Serial.println(F("\tPowering OFF the Watermark sensor"));
+    }
+    if(powerLow)
+      digitalWrite(powerPin, HIGH);
+    else
+      digitalWrite(powerPin, LOW);
+  }
+
   frequency = 1000000 / totalInput;
 
 
@@ -148,7 +161,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
     if(debug)
       Serial.print(F("\tFrequency: ")); 
       Serial.print((int16_t)frequency); 
-      Serial.print(F("Hz\t"));
+      Serial.println(F("Hz\t"));
   }
   else
   {
@@ -157,18 +170,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
     return false;
   }
     
-  delay(100);
 
-  if(debug)
-    Serial.println(F("\tPowering OFF the Watermark sensor"));
-
-  if(powerPin > 0)
-  {
-    if(powerLow)
-      digitalWrite(powerPin, HIGH);
-    else
-      digitalWrite(powerPin, LOW);
-  }
 
   delay(500);
 
@@ -203,7 +205,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
 
   if(debug)
   {
-    Serial.print(F("Temperature of the soil: "));
+    Serial.print(F("\tTemperature of the soil: "));
     Serial.println(Tsoil);
   }
 
@@ -231,7 +233,6 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
   }
   return true;
 
-
 }
 
 
@@ -255,7 +256,7 @@ void EcoIrrigation::kPaCalc(int32_t ResistanceInput, int16_t CTemperatureInput, 
   float ResistanceCompensated =  ResistanceInput *(1 + 0.001*((CTemperatureInput * 1.8 + 32)-75));
   if(debug)
   {
-    Serial.print(F("\tWRMc: ")); 
+    Serial.print(F("\tWRMcompensated: ")); 
     Serial.print((int16_t)ResistanceCompensated); 
     Serial.println(F(" Ohm"));
   }
