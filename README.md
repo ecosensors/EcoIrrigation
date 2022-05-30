@@ -6,6 +6,8 @@ The library will manage the EcoIrrigation module and convert the output to a hum
 
 ![alt PCB](https://github.com/ecosensors/EcoIrrigation/blob/main/Assets/pcb-ecoirrigation.png)
 
+*The PCB will be available in the next few months.*
+
 ## WATERMARK sensor
 Watermark™ sensors are available from Irrometer Company. These soil moisture sensors are to be buried in intimate contact with soil at root depth, where they will reach equilibrium with the local soil moisture. The measurement correlates well with soil water potential. This is fine for agriculture, because water potential (in units of kilo-Pascal or centibar) best quantifies the work plant roots do to extract moisture from the soil.
 
@@ -72,6 +74,3 @@ Pin | Output
 
 ## License
 EcoIrrrigation © 2022 by Pierre Amey is licensed under CC BY-NC-SA 4.0
-
-## PCB
-The PCB, will be available in the next few months.
