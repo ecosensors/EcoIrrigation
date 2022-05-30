@@ -240,7 +240,6 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
 
 void EcoIrrigation::kPaCalc(int32_t ResistanceInput, int16_t CTemperatureInput, int16_t &swp2, bool debug){
   // Convert from Resistance to SWP kPa measurement
-  // From SMX.pdf datasheet, page 7
   //   550 Ohms =  0 SWP kPa
   //  6000 Ohms = 35 SWP kPa
   // 28075 Ohms =200 SWP kPa
@@ -252,7 +251,6 @@ void EcoIrrigation::kPaCalc(int32_t ResistanceInput, int16_t CTemperatureInput, 
 
 
   // Adjust compensate resistance for temperature and convert celculs to Fahrenheit
-  // per page 8 of SMX.pdf 
   swp2=0;
   float ResistanceCompensated =  ResistanceInput *(1 + 0.001*((CTemperatureInput * 1.8 + 32)-75));
   if(debug)
@@ -310,13 +308,15 @@ void EcoIrrigation::resistanceCalc(float frequencyInput, int32_t &wrm2){
 
 
  /*
-* Above function are not used any more. I keep it for record
+* Bellow function are not used any more. I keep it for record
 */
 
+/*
+* Equation Shock
+*/
 float EcoIrrigation::kPaCalc_shock(float ResistanceInput, float CTemperatureInput){
   // Second Method of conversion
   // Convert from Resistance to SWP kPa measurement
-  // From SMX.pdf datasheet, page 9
   // kPa = (3.213 * kohms + 4.093) / {1 - 0.009733 * kohms - 0.01205 * Celsius)
   // ** this function accepts temperature in Celsius units **
   
