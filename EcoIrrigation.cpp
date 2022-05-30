@@ -1,15 +1,11 @@
 /*
 * EcoIrrrigation © 2022 by Pierre Amey is licensed under CC BY-NC-SA 4.0
 *
-* As the spring season is coming, I gave a priority on SMART BUD project. I will spend more time to finish that library in March 2022, but I hope
-* I will have time to do it erlier.
-*
-* The library does not work yet. Come back later!!!Work in progress
-* FEEL FREE TO IMPROVE IT
-*
-* Library for the WTAERMARK sensor (not tested for ther DS18x20 sensors)
+* Library for the WTAERMARK sensor
 * It will help you to convert the value of the EcoIrrigation board to a humidity value (kPa)
 *
+* IMPORTANT: The WATERMARK sensor must not be permanently powered, but only while reading a measure
+* https://forum.mysensors.org/topic/9384/how-to-read-frequency-and-swp-output-from-watermark-sensor/4
 */
 
 #include "Arduino.h"
@@ -17,7 +13,6 @@
 
 
 const long RESISTORarray[76] = {
-  // Watermark Sensor SMX interface to convert Hz to Resistance lookup table per  SMX.pdf page 6.
   // Hz, Ohm 
   48,  10000000,
   76,  262144,
@@ -61,8 +56,6 @@ const long RESISTORarray[76] = {
 
 
 const long SWPkPAarray[18]{
-  // Watermark Sensor SMX interface to vonvert Resistance to SWP kPa lookup table per SMX.pdf page 7. 
-  // this table is valid at temperature of 75F, 24C 
   550,  0,
   1000,  9, 
   1100,  10,
@@ -88,12 +81,6 @@ void EcoIrrigation::begin()
   Serial.println(F("*   by EcoSensor.ch    *"));
   Serial.println(F("**************************"));
 }
-
-/*
-* IMPORTAN: The WATERMRK sensor must not b3 permanetly  powered, but only while reading a measure
-*/
-// //https://forum.mysensors.org/topic/9384/how-to-read-frequency-and-swp-output-from-watermark-sensor/4
-
 
 bool EcoIrrigation::read(int analogPin, int16_t Tsoil, int16_t &swp, bool debug)
 {
