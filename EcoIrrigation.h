@@ -1,4 +1,6 @@
-
+/*
+* EcoIrrrigation © 2022 by Pierre Amey is licensed under CC BY-NC-SA 4.0
+*/
 
 #ifndef EcoIrrigation_h
 #define EcoIrrigation_h

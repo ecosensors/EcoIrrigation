@@ -1,5 +1,5 @@
 /*
-* EcoIrrigation
+* EcoIrrrigation © 2022 by Pierre Amey is licensed under CC BY-NC-SA 4.0
 *
 * As the spring season is coming, I gave a priority on SMART BUD project. I will spend more time to finish that library in March 2022, but I hope
 * I will have time to do it erlier.

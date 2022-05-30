@@ -70,7 +70,8 @@ Pin | Output
 2 | Wire 2
 
 
-
+## License
+EcoIrrrigation © 2022 by Pierre Amey is licensed under CC BY-NC-SA 4.0
 
 ## Library and PCB
 The library for Arduino board and the PCB, will be available in the next few months. Wainting for this time, you can follow my activities on [Facebook](https://www.facebook.com/ecosensors) or to read my [project](https://eco-sensors.ch/smart-irrigation/) with LoRaWAN. (Those pages are sadly not translated in english, yet)

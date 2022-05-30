@@ -1,6 +1,8 @@
 /*
  * EcoIrrigation from EcoSensors
  * 
+ * EcoIrrrigation © 2022 by Pierre Amey is licensed under CC BY-NC-SA 4.0
+ * 
  * Here is an exemple how to read a value of WATERMARK sensor with the EcoIrrigation board
  * IMPORTANT: The watermark sensor must be powered only during a measure. Then keep it unpowered.
  *
