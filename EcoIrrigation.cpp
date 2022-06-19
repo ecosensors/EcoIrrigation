@@ -118,7 +118,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
   if(debug)
     Serial.println(F("\tNeed a delay for the sensor to be in equilibre with the soil."));
   
-  delay(5000);
+  delay(7000);
 
   int highInput, lowInput;             		  // Store high and low time of wave in microseconds
   float totalInput;                     		// Temp store of total time of duration for one cycle of high and low pulse
@@ -231,6 +231,7 @@ bool EcoIrrigation::read(int analogPin, int powerPin, bool powerLow, int16_t Tso
     Serial.print(swp_shock); 
     Serial.println(F(" kpa (Shock)"));
   }
+  delay(1000);
   return true;
 
 }
